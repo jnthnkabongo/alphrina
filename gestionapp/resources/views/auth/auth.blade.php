@@ -30,8 +30,7 @@
                                                 <label for="inputPassword">Mot de passe</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Mot de passe oublier?</a>
-                                                <a class="btn btn-primary" href="{{ route('index') }}">Se connecter</a>
+                                                <a class="btn btn-primary w-100" href="{{ route('index') }}">Se connecter</a>
                                             </div>
                                         </form>
                                     </div>
