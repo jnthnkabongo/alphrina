@@ -1,20 +1,21 @@
 @extends('administration.layouts-admin.entete-admin')
 @section('content')
-    <main>
+    <main class="mb-5">
         <div class="container-fluid px-4">
             <div class="row">
                 <div class="col-lg-2 col-md-2">
-                    <h1 class="mt-4">Transactions</h1>
+                    <h1 class="mt-4">Dépôt</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Liste des transactions</li>
+                        <li class="breadcrumb-item active">Liste des dépôt</li>
                     </ol>
                 </div>
                 <div class="col-lg-8 col-md-8">
 
                 </div>
                 <div class="col-lg-2 col-md-2 mt-5">
-                    <button class="btn btn-primary w-100"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp; Nouveau</button>
+                    <a href="{{ route('creation-transaction') }}" class="btn btn-primary w-100"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp; Nouveau</a>
                 </div>
+                <hr class="mb-4">
             </div>
             <div class="card mb-4">
                 <div class="card-header">
@@ -25,24 +26,28 @@
                         <thead>
                             <tr>
                                 <th>N*</th>
-                                <th>Numéro reçu</th>
-                                <th>Nom</th>
                                 <th>Matricule</th>
+                                <th>Nom Emetteur</th>
+                                <th>Nom Récepteur</th>
+                                <th>Téléphone</th>
+                                <th>BL NO</th>
                                 <th>Montant</th>
-                                <th>Balance Totale</th>
                                 <th>Date </th>
+                                <th>Motif</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>N*</th>
-                                <th>Numéro reçu</th>
-                                <th>Non</th>
                                 <th>Matricule</th>
+                                <th>Nom Emetteur</th>
+                                <th>Nom Récepteur</th>
+                                <th>Téléphone</th>
+                                <th>BL NO</th>
                                 <th>Montant</th>
-                                <th>Balance Totale</th>
-                                <th>Salary</th>
+                                <th>Date </th>
+                                <th>Motif</th>
                                 <th>Actions</th>
                             </tr>
                         </tfoot>
@@ -51,38 +56,12 @@
                                 <td>1</td>
                                 <td>001</td>
                                 <td>Masuaku Ngonga</td>
-                                <td>1011</td>
-                                <td>610 $</td>
+                                <td>Gloria</td>
+                                <td>0974133780</td>
+                                <th>1960</th>
+                                <th>1000</th>
                                 <td>2011/04/25</td>
-                                <td>01/03/2024</td>
-                                <td>
-                                    <a class="fas fa-eye me-1" href=""></a>
-                                    <a class="fas fa-pencil me-1" aria-hidden="true" href=""></a>
-                                    <a class="fas fa-trash me-1" href=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>002</td>
-                                <td>Maria Moyeli</td>
-                                <td>1012</td>
-                                <td>630 $</td>
-                                <td>04/11/024</td>
-                                <td>04/02/2024</td>
-                                <td>
-                                    <a class="fas fa-eye me-1" href=""></a>
-                                    <a class="fas fa-pencil me-1" aria-hidden="true" href=""></a>
-                                    <a class="fas fa-trash me-1" href=""></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>003</td>
-                                <td>Mushika Dani</td>
-                                <td>1010</td>
-                                <td>270 $</td>
-                                <td>2011/01/25</td>
-                                <td>01/02/2024</td>
+                                <td>RAS</td>
                                 <td>
                                     <a class="fas fa-eye me-1" href=""></a>
                                     <a class="fas fa-pencil me-1" aria-hidden="true" href=""></a>

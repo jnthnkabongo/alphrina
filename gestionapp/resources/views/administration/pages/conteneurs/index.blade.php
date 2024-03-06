@@ -1,6 +1,6 @@
 @extends('administration.layouts-admin.entete-admin')
 @section('content')
-    <main>
+    <main class="mb-5">
         <div class="container-fluid px-4">
             <div class="row">
                 <div class="col-lg-2 col-md-2">
@@ -15,6 +15,7 @@
                 <div class="col-lg-2 col-md-2 mt-5">
                     <button class="btn btn-primary w-100"><i class="fa fa-user-plus" aria-hidden="true"></i>&nbsp;&nbsp; Nouveau</button>
                 </div>
+                <hr class="mb-4">
             </div>
             <div class="card mb-4">
                 <div class="card-header">
