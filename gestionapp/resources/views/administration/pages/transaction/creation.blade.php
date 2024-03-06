@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Matricule</label>
-                                    <input type="email" class="form-control" readonly>
+                                    <input type="email" class="form-control" value="{{ $generation_matricule }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Nom Emetteur</label>
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">BL NO</label>
-                                    <input type="text" class="form-control" readonly>
+                                    <input type="text" class="form-control" value="{{ $generation_matricule }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Montant</label>

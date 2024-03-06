@@ -4,9 +4,9 @@
         <div class="container-fluid px-4">
             <div class="row">
                 <div class="col-lg-2 col-md-2">
-                    <h1 class="mt-4">Colis</h1>
+                    <h1 class="mt-4">Retrait</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Liste des colis</li>
+                        <li class="breadcrumb-item active">Liste des retraits</li>
                     </ol>
                 </div>
                 <div class="col-lg-8 col-md-8">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class transfertController extends Controller
 {
@@ -19,7 +20,8 @@ class transfertController extends Controller
      */
     public function create()
     {
-        return view('administration.pages.transaction.creation');
+        $generation_matricule = Str::random(7);
+        return view('administration.pages.transaction.creation', compact('generation_matricule'));
 
     }
 
