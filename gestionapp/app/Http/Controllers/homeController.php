@@ -2,40 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\creentials;
 use Illuminate\Http\Request;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
-class authController extends Controller
+class homeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        /*User::create([
-            'name' => 'alphrina',
-            'email' => 'alphrina@gmail.com',
-            'password' => Hash::make('12345'),
-            'roles_id' => '1'
-        ]);*/
-        return view('auth.auth');
+        // Si le role est 1 c'est l'administration alors on lui redirige par cette interfaces
+        $roles = Auth::user()->roles_id;
+        if ($roles == '1') {
+            return view('administration.pages.index-admin');
+        }
+        if ($roles == '2') {
+            return view('utilisateur.pages.index-admin');
+        }
+        else {
+            return view('auth.auth');
+        }
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(creentials $request)
+    public function create()
     {
-        $credentials = $request->validated();
-        if (Auth::attempt($credentials))
-        {
-            $request->session()->regenerate();
-            return redirect()->intended(route('redirect'))->with('message','Bienvenu(e) dans notre application');
-        }
-        return to_route('redirect')->withErrors('L\'email saisie est introuvable...')->onlyInput('email');
+        //
     }
 
     /**
@@ -75,7 +70,6 @@ class authController extends Controller
      */
     public function destroy()
     {
-        Auth::logout();
-        return to_route('page-accueil')->with('message', 'Déconnecter avec succès...');
+        return view('404');
     }
 }

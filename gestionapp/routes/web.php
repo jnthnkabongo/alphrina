@@ -4,6 +4,7 @@ use App\Http\Controllers\authController;
 use App\Http\Controllers\colisController;
 use App\Http\Controllers\conteneurController;
 use App\Http\Controllers\depensesController;
+use App\Http\Controllers\homeController;
 use App\Http\Controllers\index;
 use App\Http\Controllers\transfertController;
 use Illuminate\Support\Facades\Route;
@@ -21,8 +22,13 @@ use Illuminate\Support\Facades\Route;
 
 //Les routes du système d'authentification
 Route::get('/', [authController::class, 'index'])->name('page-accueil');
+Route::post('/', [authController::class, 'create'])->name('soumission');
+Route::get('gestion-app', [homeController::class, 'index'])->name('redirect');
+Route::get('logout', [authController::class, 'destroy'])->name('logout');
 
-//
+Route::get('page-404', [homeController::class, 'destroy'])->name('error-page');
+
+// Les route du dash
 Route::get('index', [index::class, 'index'])->name('index'); // Dashboard
 
 // Les routes de la partie transactions

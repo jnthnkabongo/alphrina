@@ -51,6 +51,6 @@ class User extends Authenticatable
      */
     public function roles()
     {
-        return $this->belongsTo(roles::class, 'foreign_key', 'other_key');
+        return $this->belongsTo(roles::class);
     }
 }

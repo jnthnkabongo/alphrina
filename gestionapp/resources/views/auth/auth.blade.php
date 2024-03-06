@@ -8,6 +8,8 @@
         <meta name="author" content="" />
         <title>Absolut Group</title>
         <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="bg-light">
@@ -20,19 +22,39 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header "><h3 class="text-center font-weight-light my-4">Connexion</h3></div>
                                     <div class="card-body">
-                                        <form>
+                                        <form action="{{ route('soumission') }}" method="POST">
+                                            @csrf
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                                                <input class="form-control" id="email" name="email" type="email" value="{{ old('email') }}"/>
                                                 <label for="inputEmail">Adresse E-mail</label>
+                                                <div class="text-danger">
+                                                    @error("email")
+                                                        {{ $message }}
+                                                    @enderror
+                                                </div>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
+                                                <input class="form-control" id="password" name="password" type="password" placeholder="Password" />
                                                 <label for="inputPassword">Mot de passe</label>
+                                                <div class="text-danger">
+                                                    @error("password")
+                                                        {{ $message }}
+                                                    @enderror
+                                                </div>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="btn btn-primary w-100" href="{{ route('index') }}">Se connecter</a>
+                                                <button class="btn btn-primary w-100" href="">Se connecter</button>
                                             </div>
                                         </form>
+                                        @if(Session::has('message'))
+                                            <script>
+                                                swal("message", "{{ Session::get('message') }}", 'success', {
+                                                    showConfirmButton: false,
+                                                    title: '',
+                                                    timer: 15000
+                                                });
+                                            </script>
+                                        @endif
                                     </div>
                                     <div class="card-footer bg-light text-center pt-5 py-3">
                                         <div></div>
