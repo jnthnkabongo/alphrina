@@ -21,7 +21,7 @@ class userConnecter
             return $next($request);
         }
         else {
-           return redirect()->route('error-page');
+           return redirect()->route('page-accueil');
         }
 
     }

@@ -14,7 +14,8 @@ class transfertController extends Controller
      */
     public function index()
     {
-        return view('administration.pages.transaction.index');
+        $liste_transaction = depot::orderBydesc('id')->get();
+        return view('administration.pages.transaction.index', compact('liste_transaction'));
     }
 
     /**
@@ -53,7 +54,7 @@ class transfertController extends Controller
             $Depot->somme = $request->somme;
             $Depot->users_id = 1;
             $Depot->save();
-            return back()->with('message', 'La création d\'un dépot a été creer avec success...');
+            return to_route('index-transaction')->with('message', 'La création du depot a ete creer avec success...');
         } catch (\Throwable $e) {
             dd($e);
         }

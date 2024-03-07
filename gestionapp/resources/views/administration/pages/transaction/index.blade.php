@@ -22,10 +22,10 @@
                     <i class="fas fa-table me-1"></i>
                 </div>
                 <div class="card-body">
-                    <table id="datatablesSimple">
+                    <table id="datatablesSimple" class="table table table-hover">
                         <thead>
                             <tr>
-                                <th>N*</th>
+                                <th>Nº</th>
                                 <th>Matricule</th>
                                 <th>Nom Emetteur</th>
                                 <th>Nom Récepteur</th>
@@ -37,39 +37,43 @@
                                 <th>Actions</th>
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th>N*</th>
-                                <th>Matricule</th>
-                                <th>Nom Emetteur</th>
-                                <th>Nom Récepteur</th>
-                                <th>Téléphone</th>
-                                <th>BL NO</th>
-                                <th>Montant</th>
-                                <th>Date </th>
-                                <th>Motif</th>
-                                <th>Actions</th>
-                            </tr>
-                        </tfoot>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>001</td>
-                                <td>Masuaku Ngonga</td>
-                                <td>Gloria</td>
-                                <td>0974133780</td>
-                                <th>1960</th>
-                                <th>1000</th>
-                                <td>2011/04/25</td>
-                                <td>RAS</td>
-                                <td>
-                                    <a class="fas fa-eye me-1" href=""></a>
-                                    <a class="fas fa-pencil me-1" aria-hidden="true" href=""></a>
-                                    <a class="fas fa-trash me-1" href=""></a>
-                                </td>
-                            </tr>
+                            @forelse ($liste_transaction as $itemtrasaction)
+                                <tr>
+                                    <td>{{ $itemtrasaction->id }}</td>
+                                    <td>{{ Str::upper($itemtrasaction->matricule) }}</td>
+                                    <td>{{ $itemtrasaction->nom_emetteur }}</td>
+                                    <td>{{ $itemtrasaction->nom_recepteur }}</td>
+                                    <td>{{ $itemtrasaction->telephone }}</td>
+                                    <th>{{ Str::upper($itemtrasaction->bl_no) }}</th>
+                                    <th>{{ $itemtrasaction->montant }}</th>
+                                    <td>{{ $itemtrasaction->date_depot }}</td>
+                                    <td>{{ $itemtrasaction->motif }}</td>
+                                    <td>
+                                        <a class="fas fa-eye me-1" href=""></a>
+                                        <a class="fas fa-pencil me-1" aria-hidden="true" href=""></a>
+                                        <a class="fas fa-trash me-1" href=""></a>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td class="cell" colspan="12">
+                                        <div class="" style="text-align: center">Aucune transaction effectuée</div>
+                                    </td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-lg-6 text-center">
+                            Somme : <span class="badge text-bg-success"> 300</span>
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <span>Balance : 600</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             @if(Session::has('message'))

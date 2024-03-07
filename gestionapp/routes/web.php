@@ -35,7 +35,7 @@ Route::middleware(['connexion'])->group(function () {
 
     Route::get('liste-transaction', [transfertController::class, 'index'])->name('index-transaction');
     Route::get('creation-transaction', [transfertController::class, 'create'])->name('creation-transaction');
-    Route::post('creation-transactions', [transfertController::class, 'show'])->name('creation-transaction');
+    Route::post('creation-transaction', [transfertController::class, 'show'])->name('creation-transactions');
     Route::get('modifier-transaction', [transfertController::class, 'store'])->name('modifier-transaction');
 
     // Les routes de la partie depenses

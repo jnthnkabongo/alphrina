@@ -34,7 +34,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="password" name="password" type="password" placeholder="Password" />
+                                                <input class="form-control" id="password" name="password" type="password" placeholder="Password"/>
                                                 <label for="inputPassword">Mot de passe</label>
                                                 <div class="text-danger">
                                                     @error("password")
