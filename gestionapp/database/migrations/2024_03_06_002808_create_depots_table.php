@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('montant');
             $table->date('date_depot');
             $table->text('motif');
+            $table->string('somme');
             $table->unsignedInteger('users_id');
             $table->foreign('users_id')->references('id')->on('users');
             $table->timestamps();

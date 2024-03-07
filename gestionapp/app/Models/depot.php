@@ -12,12 +12,13 @@ class depot extends Model
         'id',
         'nom_emetteur',
         'inom_recepteurd',
-        'idmatricule',
+        'matricule',
         'telephone',
-        'ibl_nod',
+        'bl_no',
         'montant',
         'date_depot',
         'motif',
+        'somme',
         'users_id'
     ];
 }

@@ -23,46 +23,49 @@
                     <div class="card">
                         <div class="card-header pt-4"></div>
                         <div class="card-body">
-                            <form class="row g-3">
-                                <div class="col-md-6">
+                            <form class="row g-3" action="{{ route('creation-transaction') }}" method="POST">
+                                <!--<div class="col-md-6">
                                 <label class="form-label">Numéro Réçu</label>
-                                <input type="email" class="form-control" >
-                                </div>
-                                <div class="col-md-6">
+                                <input type="text" class="form-control" id="numero_recu" name="numero_recu" >
+                                </div>-->
+                                <div class="col-md-12">
                                     <label class="form-label">Matricule</label>
-                                    <input type="email" class="form-control" value="{{ $generation_matricule }}" readonly>
+                                    <input type="text" class="form-control" id="matricule" name="matricule" value="{{ $generation_matricule }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Nom Emetteur</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" id="nom_emetteur" name="nom_emetteur">
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">Nom Récepteur</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" id="nom_recepteur" name="nom_recepteur">
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Téléphone</label>
-                                    <input type="number" class="form-control">
+                                    <input type="number" class="form-control" id="telephone" name="telephone">
                                 </div>
                                 <div class="col-md-6">
                                     <label  class="form-label">BL NO</label>
-                                    <input type="text" class="form-control" value="{{ $generation_matricule }}" readonly>
+                                    <input type="text" class="form-control" id="bl_no" name="blno" value="{{ $generation_matricule }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Montant</label>
-                                    <input type="number" class="form-control">
+                                    <input type="number" class="form-control" id="montant" name="montant">
                                 </div>
                                 <div class="col-md-6">
                                 <label  class="form-label">Date du jour</label>
-                                <input type="date" class="form-control">
+                                <input type="date" class="form-control" id="date_depot" name="date_depot">
                                 </div>
                                 <div class="col-6">
                                 <label for="inputAddress" class="form-label">Motif</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" id="motif" name="motif">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="" class="form-label">Somme en chiffres</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" id="somme" name="somme">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" id="users_id" name="users_id" hidden>
                                 </div>
                                 <div class="col-12">
                                 <button type="submit" class="btn btn-primary w-100">Enregistrer</button>

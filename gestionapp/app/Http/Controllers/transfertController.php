@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\saveDepot;
+use App\Models\depot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -22,7 +24,6 @@ class transfertController extends Controller
     {
         $generation_matricule = Str::random(7);
         return view('administration.pages.transaction.creation', compact('generation_matricule'));
-
     }
 
     /**
@@ -37,9 +38,25 @@ class transfertController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    // La fonction de creation d'un nouveau depot
+    public function show(depot $Depot, saveDepot $request)
     {
-        //
+        try {
+            $Depot->matricule = $request->matricule;
+            $Depot->nom_emetteur = $request->nom_emetteur;
+            $Depot->nom_recepteur = $request->nom_recepteur;
+            $Depot->telephone = $request->telephone;
+            $Depot->bl_no = $request->bl_no;
+            $Depot->montant = $request->montant;
+            $Depot->date_depot = $request->date_depot;
+            $Depot->motif = $request->motif;
+            $Depot->somme = $request->somme;
+            $Depot->users_id = 1;
+            $Depot->save();
+            return back()->with('message', 'La création d\'un dépot a été creer avec success...');
+        } catch (\Throwable $e) {
+            dd($e);
+        }
     }
 
     /**
