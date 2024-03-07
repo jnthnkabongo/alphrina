@@ -23,47 +23,45 @@
                     <div class="card">
                         <div class="card-header pt-4"></div>
                         <div class="card-body">
-                            <form class="row g-3">
+                            <form class="row g-3" action="{{ route('modifier-transactions', $itemtrasaction->id) }}" method="GET">
+                                @csrf
                                 <div class="col-md-6">
                                 <label for="inputEmail4" class="form-label">Numéro Réçu</label>
-                                <input type="email" class="form-control" id="inputEmail4">
+                                <input type="text" id="" name="" class="form-control" value="{{ $itemtrasaction->id }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Matricule</label>
-                                    <input type="email" class="form-control" id="inputEmail4">
+                                    <input type="email" id="matricule" name="matricule"  class="form-control" value="{{ Str::upper($itemtrasaction->matricule) }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Nom Emetteur</label>
-                                    <input type="text" class="form-control" id="inputEmail4">
+                                    <input type="text" id="nom_emetteur" name="nom_emetteur"  class="form-control" value="{{ $itemtrasaction->nom_emetteur }}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Nom Récepteur</label>
-                                    <input type="text" class="form-control" id="inputEmail4">
+                                    <input type="text" id="nom_recepteur" name="nom_recepteur"  class="form-control" value="{{ $itemtrasaction->nom_recepteur }}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Téléphone</label>
-                                    <input type="number" class="form-control" id="inputEmail4">
+                                    <input type="number" id="telephone" name="telephone"  class="form-control" value="{{ $itemtrasaction->telephone }}">
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">BL NO</label>
-                                    <input type="text" class="form-control" id="inputEmail4">
+                                    <input type="text" id="bl_no" name="bl_no"  class="form-control" value="{{ $itemtrasaction->bl_no }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Montant</label>
-                                    <input type="number" class="form-control" id="inputEmail4">
+                                    <input type="number" id="montant" name="montant"  class="form-control" value="{{ $itemtrasaction->montant }}">
                                 </div>
                                 <div class="col-md-6">
                                 <label for="inputPassword4" class="form-label">Date du jour</label>
-                                <input type="password" class="form-control" id="inputPassword4">
+                                <input type="text" id="date_depot" name="date_depot"  class="form-control" value="{{ $itemtrasaction->date_depot }}">
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-12">
                                 <label for="inputAddress" class="form-label">Motif</label>
-                                <input type="text" class="form-control" id="inputAddress" >
+                                <input type="text" id="motif" name="motif"  class="form-control" value="{{ $itemtrasaction->motif }}">
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="inputEmail4" class="form-label">Uitlisateur</label>
-                                    <input type="text" class="form-control" id="inputEmail4" readonly>
-                                </div>
+
                                 <div class="col-12">
                                 <button type="submit" class="btn btn-primary w-100">Modifier</button>
                                 </div>
@@ -71,7 +69,15 @@
                         </div>
                         <div class="card-footer text-muted  pt-4"></div>
                     </div>
-
+                    @if(Session::has('message'))
+                        <script>
+                            swal("Message", "{{ Session::get('message') }}", 'success', {
+                                showConfirmButton:true,
+                                button: "OK",
+                                timer: 1000
+                            });
+                        </script>
+                    @endif
                 </div>
                 <div></div>
             </div>

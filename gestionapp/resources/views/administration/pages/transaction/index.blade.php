@@ -80,7 +80,8 @@
             <script>
                 swal("Message", "{{ Session::get('message') }}", 'success', {
                     button:true,
-                    button: "OK"
+                    button: "OK",
+                    timer: 1000
                 });
             </script>
         @endif

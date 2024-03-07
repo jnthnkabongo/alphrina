@@ -38,7 +38,7 @@ Route::middleware(['connexion'])->group(function () {
     Route::post('creation-transaction', [transfertController::class, 'show'])->name('creation-transactions');
     Route::get('visualisation-transaction-{itemtrasaction}', [transfertController::class, 'store'])->name('visualisation-transaction');
     Route::get('modifier-transaction-{itemtrasaction}', [transfertController::class, 'edit'])->name('modifier-transaction');
-    Route::get('modifier-transactions', [transfertController::class, 'update'])->name('modifier-transactions');
+    Route::get('modifier-transactions-{itemtrasaction}', [transfertController::class, 'update'])->name('modifier-transactions');
     Route::get('suppression-transaction-{itemtrasaction}', [transfertController::class, 'destroy'])->name('suppression-transaction');
 
     // Les routes de la partie depenses

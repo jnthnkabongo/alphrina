@@ -26,44 +26,41 @@
                             <form class="row g-3">
                                 <div class="col-md-6">
                                 <label for="inputEmail4" class="form-label">Numéro Réçu</label>
-                                <input type="email" class="form-control" id="inputEmail4">
+                                <input type="text" class="form-control" value="{{ $itemtrasaction->id }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Matricule</label>
-                                    <input type="email" class="form-control" id="inputEmail4">
+                                    <input type="email" class="form-control" value="{{ Str::upper($itemtrasaction->matricule) }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Nom Emetteur</label>
-                                    <input type="text" class="form-control" id="inputEmail4">
+                                    <input type="text" class="form-control" value="{{ $itemtrasaction->nom_emetteur }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Nom Récepteur</label>
-                                    <input type="text" class="form-control" id="inputEmail4">
+                                    <input type="text" class="form-control" value="{{ $itemtrasaction->nom_recepteur }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Téléphone</label>
-                                    <input type="number" class="form-control" id="inputEmail4">
+                                    <input type="number" class="form-control" value="{{ $itemtrasaction->telephone }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">BL NO</label>
-                                    <input type="text" class="form-control" id="inputEmail4">
+                                    <input type="text" class="form-control" value="{{ $itemtrasaction->bl_no }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="inputEmail4" class="form-label">Montant</label>
-                                    <input type="number" class="form-control" id="inputEmail4">
+                                    <input type="number" class="form-control" value="{{ $itemtrasaction->montant }}" readonly>
                                 </div>
                                 <div class="col-md-6">
                                 <label for="inputPassword4" class="form-label">Date du jour</label>
-                                <input type="password" class="form-control" id="inputPassword4">
+                                <input type="text" class="form-control" value="{{ $itemtrasaction->date_depot }}" readonly>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-12">
                                 <label for="inputAddress" class="form-label">Motif</label>
-                                <input type="text" class="form-control" id="inputAddress" >
+                                <input type="text" class="form-control" value="{{ $itemtrasaction->motif }}" readonly>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="inputEmail4" class="form-label">Uitlisateur</label>
-                                    <input type="text" class="form-control" id="inputEmail4" readonly>
-                                </div>
+
                                 <div class="col-12">
                                 <button type="submit" class="btn btn-primary w-100">Modifier</button>
                                 </div>

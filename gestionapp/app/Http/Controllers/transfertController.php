@@ -9,27 +9,20 @@ use Illuminate\Support\Str;
 
 class transfertController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    //Affichage de la liste des transactions depot
     public function index()
     {
         $liste_transaction = depot::orderBydesc('id')->get();
         return view('administration.pages.transaction.index', compact('liste_transaction'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    //Affichage du formulaire de creation du depot avec generation d'un code unique
     public function create()
     {
         $generation_matricule = Str::random(7);
         return view('administration.pages.transaction.creation', compact('generation_matricule'));
     }
-     /**
-     * Display the specified resource.
-     */
-    // La fonction de creation d'un nouveau depot
+    // Spumission du formulaire e creation et creation d'un depot
     public function show(depot $Depot, saveDepot $request)
     {
         try {
@@ -49,30 +42,33 @@ class transfertController extends Controller
             dd($e);
         }
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store()
+    //Affichage du formulaire de visualisation des informations du depot
+    public function store(depot $itemtrasaction)
     {
-        return view('administration.pages.transaction.visualisation');
-
+        return view('administration.pages.transaction.visualisation', compact('itemtrasaction'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit()
+    // Affichage du formulaire de modification avant modification
+    public function edit(depot $itemtrasaction)
     {
-        return view('administration.pages.transaction.modifier');
+        return view('administration.pages.transaction.modifier', compact('itemtrasaction'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    // La soumission du formulaire de modification
+    public function update(Request $request,depot $itemtrasaction)
     {
-
+        try {
+            $itemtrasaction->nom_emetteur = $request->nom_emetteur;
+            $itemtrasaction->nom_recepteur = $request->nom_recepteur;
+            $itemtrasaction->telephone = $request->telephone;
+            $itemtrasaction->montant = $request->montant;
+            $itemtrasaction->date_depot = $request->date_depot;
+            $itemtrasaction->montant = $request->montant;
+            $itemtrasaction->motif = $request->motif;
+            //dd($itemtrasaction);
+            $itemtrasaction->update();
+            return to_route('index-transaction')->with('message','La modification effectuer avec success...');
+        } catch (\Throwable $e) {
+            $e;
+        }
     }
 
     /**
