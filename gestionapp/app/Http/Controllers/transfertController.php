@@ -26,17 +26,7 @@ class transfertController extends Controller
         $generation_matricule = Str::random(7);
         return view('administration.pages.transaction.creation', compact('generation_matricule'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store()
-    {
-        return view('administration.pages.transaction.modifier');
-
-    }
-
-    /**
+     /**
      * Display the specified resource.
      */
     // La fonction de creation d'un nouveau depot
@@ -61,11 +51,20 @@ class transfertController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     */
+    public function store()
+    {
+        return view('administration.pages.transaction.visualisation');
+
+    }
+
+    /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit()
     {
-        //
+        return view('administration.pages.transaction.modifier');
     }
 
     /**
@@ -73,7 +72,7 @@ class transfertController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
     }
 
     /**

@@ -50,9 +50,9 @@
                                     <td>{{ $itemtrasaction->date_depot }}</td>
                                     <td>{{ $itemtrasaction->motif }}</td>
                                     <td>
-                                        <a class="fas fa-eye me-1" href=""></a>
-                                        <a class="fas fa-pencil me-1" aria-hidden="true" href=""></a>
-                                        <a class="fas fa-trash me-1" href=""></a>
+                                        <a class="text-dark" href="{{ route('visualisation-transaction', $itemtrasaction) }}"><i class="fas fa-eye"></i></a>
+                                        <a class="text-dark" href="{{ route('modifier-transaction', $itemtrasaction) }}"><i class="fas fa-pencil"></i></a>
+                                        <a class="text-dark" href="{{ route('suppression-transaction', $itemtrasaction) }}"><i class="fas fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @empty

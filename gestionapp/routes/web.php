@@ -36,7 +36,10 @@ Route::middleware(['connexion'])->group(function () {
     Route::get('liste-transaction', [transfertController::class, 'index'])->name('index-transaction');
     Route::get('creation-transaction', [transfertController::class, 'create'])->name('creation-transaction');
     Route::post('creation-transaction', [transfertController::class, 'show'])->name('creation-transactions');
-    Route::get('modifier-transaction', [transfertController::class, 'store'])->name('modifier-transaction');
+    Route::get('visualisation-transaction-{itemtrasaction}', [transfertController::class, 'store'])->name('visualisation-transaction');
+    Route::get('modifier-transaction-{itemtrasaction}', [transfertController::class, 'edit'])->name('modifier-transaction');
+    Route::get('modifier-transactions', [transfertController::class, 'update'])->name('modifier-transactions');
+    Route::get('suppression-transaction-{itemtrasaction}', [transfertController::class, 'destroy'])->name('suppression-transaction');
 
     // Les routes de la partie depenses
     Route::get('liste-depenses', [depensesController::class, 'index'])->name('index-depenses');
